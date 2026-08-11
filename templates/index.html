@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Civic Infrastructure Monitor</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<!-- Leaflet Map CSS -->
+
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Civic Infrastructure Monitor</h1>
+
+<p>Upload road image to detect infrastructure issues</p>
+
+<!-- IMAGE UPLOAD -->
+
+<form id="uploadForm">
+
+<input type="file" id="imageInput" name="image" required>
+
+<br><br>
+
+<button type="submit">Detect Issue</button>
+
+</form>
+
+<!-- PREDICTION RESULT -->
+
+<h3 id="predictionResult"></h3>
+
+<!-- GENERATE COMPLAINT -->
+
+<button id="generateComplaint" style="display:none;">
+Generate Complaint
+</button>
+
+<br><br>
+
+<textarea id="complaintText"
+rows="5"
+placeholder="Generated complaint will appear here">
+</textarea>
+
+<br><br>
+
+<button id="submitComplaint" style="display:none;">
+Submit Complaint
+</button>
+
+<p id="complaintIdDisplay"></p>
+
+<!-- LOCATION MAP -->
+
+<h3>Your Location</h3>
+
+<div id="map"></div>
+
+<!-- DIVIDER -->
+
+<hr>
+
+<!-- CHECK STATUS SECTION -->
+
+<h3>Check Complaint Status</h3>
+
+<input type="number"
+id="complaintIdInput"
+placeholder="Enter Complaint ID">
+
+<br><br>
+
+<button onclick="checkStatus()">Check Status</button>
+
+<h3 id="statusResult"></h3>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+<!-- Leaflet Map JS -->
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+</body>
+</html>
